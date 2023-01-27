@@ -1,0 +1,328 @@
+* {
+    box-sizing: border-box;
+    --main-color: #083D77;
+    --base-color: #EBEBD3;
+    --accent1-color: #F4D35E;
+    --accent2-color: #EE964B;
+    --accent3-color: #F95738;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.title {
+    font-family: 'Press Start 2P';
+    text-align: center;
+    width: 50%;
+    font-size: clamp(0.625rem, 0.2679rem + 2.8571vw, 1.875rem);
+}
+
+.start {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    animation: entrance 1s ease-out 0s 1 normal forwards;
+    -webkit-animation: entrance 1s ease-out 0s 1 normal forwards;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20%;
+}
+
+.menu-button {
+    background: #F4D35E;
+    background-image: -webkit-linear-gradient(top, #F4D35E, #F95738);
+    background-image: -moz-linear-gradient(top, #F4D35E, #F95738);
+    background-image: -ms-linear-gradient(top, #F4D35E, #F95738);
+    background-image: -o-linear-gradient(top, #F4D35E, #F95738);
+    background-image: linear-gradient(to bottom, #F4D35E, #F95738);
+    -webkit-border-radius: 24;
+    -moz-border-radius: 24;
+    border-radius: 24px;
+    color: black;
+    font-size: 30px;
+    padding: 10px 20px 10px 20px;
+    border: solid #000000 3px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.menu-button:hover {
+    border-color: white;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Biryani';
+    color: black;
+    background-color: var(--base-color);
+    transition: .4s;
+}
+
+.wrapper {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 92px;
+    width: 100%;
+    display: none;
+}
+
+.navbar-container {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+}
+
+.icon {
+    background-image: url(/images/calculate-math-icon.svg);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-width: 30px;
+}
+
+.game-container {
+    width: 100%;
+    height: 80vh;
+    display: none;
+}
+
+.loader-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    display: none;
+}
+
+.loader-background {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.loader {
+    color: white;
+    width: 500px;
+    height: 100px;
+    font-family: 'Press Start 2P';
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.game-window {
+    font-size: clamp(0.625rem, 0.4464rem + 0.5vw, 1.25rem);
+    font-family: 'Press Start 2P';
+    margin: 30px auto;
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+.game {
+    font-size: 30px;
+    background-color: var(--main-color);
+    width: 79%;
+    height: 100%;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border: solid black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.upper-game {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.equation-container {
+    border: black solid;
+    background-color: var(--accent1-color);
+    width: 90%;
+    height: 80%;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lower-game {
+    min-height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.lower-game > div {
+    display: flex;
+    flex-basis: calc(50% - 10%);
+    justify-content: center;
+    flex-direction: column;
+}
+
+.answer {
+    width: 16%;
+    height: 40%;
+    background-color: var(--accent1-color);
+    border: solid black;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+.answer:hover{
+    border-color: white ;
+}
+
+.info-board {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    background-color: var(--accent2-color);
+    width: 20%;
+    height: 100%;
+    border-radius: 30px ;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border: solid black;
+}
+
+.level, .timer, .score {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 25%;
+    align-items: center;
+    justify-content: center;
+}
+
+.level-info, .score-info, .timer-info {
+    border: black solid;
+    background-color: var(--accent3-color);
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+.timer-info {
+    background-color: lightgreen;
+}
+
+
+@media only screen and (max-width: 1180px) and (min-height: 520px) {
+
+    .game-window{
+        flex-direction: column-reverse;
+    }
+
+    .game {
+        width: 100%;
+        height: 75%;
+    }
+
+
+    .info-board {
+        width: 100%;
+        height: 20%;
+        flex-direction: row;
+    }
+
+    .level, .timer, .score {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@keyframes exit {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+}
+
+@keyframes entrance {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

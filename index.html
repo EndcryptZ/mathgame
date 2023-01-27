@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styling/bootstrap.min.css">
+    <link rel="stylesheet" href="/styling/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="/scripts/jquery-3.6.1.min.js"></script>
+    <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+    <title>Simple Math Game</title>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader-background"></div>
+        <div class="loader">
+            <div class="loader-info">Starting in: 3</div>
+        </div>
+    </div>
+    <div class="start">
+        <div class="title">SIMPLE MATH GAME <br> DEVELOPED BY PETERSON HALL</div>
+        <div class="menu-buttons">
+            <div class="menu-button" id="start-button">START</div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="navbar">
+            <div class="navbar-container">
+                <div>Math Practice Game by Peterson Hall</div>
+                <div class="icon"></div>
+            </div>
+        </header>
+        <div class="game-container">
+            <div class="game-window">
+                <div class="game">
+                    <div class="upper-game">
+                        <div class="equation-container" id="equation"></div>
+                    </div>
+                    <div class="lower-game">
+                        <div class="answer" id="answer1"></div>
+                        <div class="answer" id="answer2"></div>
+                        <div class="answer" id="answer3"></div>
+                        <div class="answer" id="answer4"></div>
+                    </div>
+                </div>
+                <div class="info-board">
+                    <div class="level">
+                        <p class="info-header">LEVEL:</p>
+                        <div class="level-info" id="level"></div>
+                    </div>
+                    <div class="timer">
+                        <p class="info-header">TIME:</p>
+                        <div class="timer-info" id="time"></div>
+                    </div>
+                    <div class="score">
+                        <p class="info-header">SCORE:</p>
+                        <div class="score-info" id="score"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
