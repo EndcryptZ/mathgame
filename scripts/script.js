@@ -2,8 +2,9 @@ let time = 30;
 let answer;
 let gameLevel = 1;
 let gameScore = 0;
-const choices = [1, 2, 3, 4]
 let clicked = false;
+let choiceA, choiceB, choiceC, choiceD;
+const choices = [1, 2, 3, 4];
 
 $('#start-button').click(function(){
     if (!clicked){
@@ -28,7 +29,17 @@ function gameOver(){
 
 function answerProgress(element) {
     var theElement = $(element).attr('id');
-    var playersAnswer = $(`#${theElement}`).html();
+
+    if (theElement === "answer1"){
+        playersAnswer = choiceA;
+    } else if (theElement === "answer2"){
+        playersAnswer = choiceB;
+    } else if (theElement === "answer3"){
+        playersAnswer = choiceC;
+    } else if (theElement === "answer4"){
+        playersAnswer = choiceD;
+    }
+
     if (String(playersAnswer) === String(answer)) {
         calculateScore();
         gameLevel += 1;
@@ -39,10 +50,14 @@ function answerProgress(element) {
     } else {
         $(`#${theElement}`).css('background-color', 'red');
         gameOver();
-        for(let i = 1; i < 5; i++){
-            if (String($("#answer" + String(i)).html()) === String(answer)){
-                $("#answer" + String(i)).css('background-color', 'lightgreen')
-            }
+        if (String(choiceA) === String(answer)) {
+            $('#answer1').css('background-color', 'lightgreen');
+        } else if (String(choiceB) === String(answer)) {
+            $('#answer2').css('background-color', 'lightgreen');
+        } else if (String(choiceC) === String(answer)) {
+            $('#answer3').css('background-color', 'lightgreen');
+        } else if (String(choiceD) === String(answer)) {
+            $('#answer4').css('background-color', 'lightgreen');
         }
     }
 }
@@ -138,7 +153,7 @@ function generateLevel() {
     var generatedNumbers = [];
 
     // If level is below 10
-    if (gameLevel < 10) {
+    if (gameLevel <= 10) {
         var symbol = randomLowerSymbol();
         if (symbol === "+") {
             int1 = randomInt(5, 20);
@@ -149,7 +164,7 @@ function generateLevel() {
         }
     }
     // Else if level is above 10 and below 20
-    else if (gameLevel > 10 && gameLevel < 20) {
+    else if (gameLevel > 10 && gameLevel <= 20) {
         var symbol = randomLowerSymbol();
         if (symbol === "+") {
             int1 = randomInt(20, 50);
@@ -187,7 +202,7 @@ function generateLevel() {
 
     arrayShuffler(choices);
 
-    $('#equation').html(equation)
+    $('#equation').html(equation);
     $('#answer' + choices[0]).html(answer);
     for (var i = 1; i < 4; i++){
         var randomNumber = numberGenerator(answer);
@@ -198,6 +213,10 @@ function generateLevel() {
         $('#answer' + choices[i]).html(randomNumber);
 
     }
+    choiceA = $('#answer1').html();
+    choiceB = $('#answer2').html();
+    choiceC = $('#answer3').html();
+    choiceD = $('#answer4').html();
 
     generatedNumbers = [];
 }
@@ -224,4 +243,4 @@ function numberGenerator(specificInt) {
     var min = specificInt - 10;
     var max = specificInt + 10;
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+}
